@@ -26,17 +26,20 @@ class ProjectSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double _titleFontSize = width > 600 ? width / 20 : width / 10;
+    double _contentFontSize = width > 600 ? width / 60 : width / 40;
+
     switch (alignment) {
       case ProjectSectionAlignment.right:
         return SizedBox(
             child: Row(
-          mainAxisAlignment: image != null
+          mainAxisAlignment: image != null && width > 600
               ? MainAxisAlignment.spaceBetween
               : MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Visibility(
-              visible: image != null,
+              visible: image != null && width > 600,
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 height: height - 40,
@@ -53,7 +56,7 @@ class ProjectSection extends StatelessWidget {
                   Text(
                     titleText,
                     style: TextStyle(
-                        color: theme.titleTextColor, fontSize: width / 20),
+                        color: theme.titleTextColor, fontSize: _titleFontSize),
                   ),
                   const SizedBox(height: 50),
                   Flexible(
@@ -62,7 +65,7 @@ class ProjectSection extends StatelessWidget {
                       textAlign: TextAlign.left,
                       overflow: TextOverflow.visible,
                       style: TextStyle(
-                          color: theme.textColor, fontSize: width / 60),
+                          color: theme.textColor, fontSize: _contentFontSize),
                     ),
                   ),
                   const SizedBox(height: 30),
@@ -75,7 +78,7 @@ class ProjectSection extends StatelessWidget {
       case ProjectSectionAlignment.left:
         return SizedBox(
             child: Row(
-          mainAxisAlignment: image != null
+          mainAxisAlignment: image != null && width > 600
               ? MainAxisAlignment.spaceBetween
               : MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,7 +92,7 @@ class ProjectSection extends StatelessWidget {
                   Text(
                     titleText,
                     style: TextStyle(
-                        color: theme.titleTextColor, fontSize: width / 20),
+                        color: theme.titleTextColor, fontSize: _titleFontSize),
                   ),
                   const SizedBox(height: 50),
                   Flexible(
@@ -97,7 +100,7 @@ class ProjectSection extends StatelessWidget {
                       contentText,
                       overflow: TextOverflow.visible,
                       style: TextStyle(
-                          color: theme.textColor, fontSize: width / 60),
+                          color: theme.textColor, fontSize: _contentFontSize),
                     ),
                   ),
                   const SizedBox(height: 30),
@@ -106,7 +109,7 @@ class ProjectSection extends StatelessWidget {
               ),
             ),
             Visibility(
-              visible: image != null,
+              visible: image != null && width > 600,
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 height: height - 40,

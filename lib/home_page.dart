@@ -3,6 +3,7 @@ import 'dart:js' as js;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mdi/mdi.dart';
+import 'package:personal_site/about_me_page.dart';
 
 import 'package:personal_site/widgets/link_button.dart';
 import 'package:personal_site/widgets/painters/main_drawings.dart';
@@ -13,8 +14,11 @@ import 'package:personal_site/widgets/painters/third_drawings.dart';
 import 'package:personal_site/widgets/project_section.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key, this.theme}) : super(key: key);
+  static const String route = '/';
+
+  const HomePage({Key? key, this.theme, this.changeTheme}) : super(key: key);
   final SiteTheme? theme;
+  final Function? changeTheme;
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -111,18 +115,18 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     width: _width,
                     height: _height,
                     alignment: ProjectSectionAlignment.left,
-                    image: Image.asset("../images/school_app_screenshot.jpg"),
+                    image: Image.asset('../images/school_app_screenshot.jpg'),
                     theme: _theme,
-                    titleText: "School app",
+                    titleText: 'School app',
                     contentText:
-                        "An app that lets you manage all your grades and subjects.\n"
-                        "It has a calendar from witch you can view all the upcoming\n"
-                        "tests and it can store all your grades with description\n"
-                        "and attachments. This app was made with Flutter and coded\n"
-                        "in Dart and uses firestore storage. All your data is saved\n"
-                        "securely on the cloud so you can log in with multiple devices\n"
-                        "and have them synchronized. You can also log in with Google.\n"
-                        "This project is still WIP",
+                        'An app that lets you manage all your grades and subjects.\n'
+                        'It has a calendar from witch you can view all the upcoming\n'
+                        'tests and it can store all your grades with description\n'
+                        'and attachments. This app was made with Flutter and coded\n'
+                        'in Dart and uses firestore storage. All your data is saved\n'
+                        'securely on the cloud so you can log in with multiple devices\n'
+                        'and have them synchronized. You can also log in with Google.\n'
+                        'This project is still WIP',
                     linkButtons: const SizedBox(),
                   ),
                 ),
@@ -139,39 +143,62 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     height: _height,
                     alignment: ProjectSectionAlignment.right,
                     image: Image.asset(
-                      "../images/chrome_tabs_screenshot.png",
+                      '../images/chrome_tabs_screenshot.png',
                       width: _width / 2,
                     ),
                     theme: _theme,
-                    titleText: "Chrome tabs",
+                    titleText: 'Chrome tabs',
                     contentText:
-                        "An extension for Visual Studio Code that integrates\n"
-                        "websites into the editor. With this extension developed\n"
-                        "with Type Script you can save multiple websites and have\n"
-                        "them near your lines of code. With this extension you\n"
+                        'An extension for Visual Studio Code that integrates\n'
+                        'websites into the editor. With this extension developed\n'
+                        'with Type Script you can save multiple websites and have\n'
+                        'them near your lines of code. With this extension you\n'
                         "don't need to have multiple windows open because it's\n"
-                        "all built into VS Code.",
-                    linkButtons: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        LinkButton(
-                            url:
-                                "https://github.com/RiccardoAntonelli/chrome_tabs",
-                            backgroundColor: _theme.firstBackgroundColor,
-                            textColor: _theme.buttonTextColor,
-                            icon: Mdi.github,
-                            buttonText: "View on GitHub"),
-                        const SizedBox(width: 50),
-                        LinkButton(
-                            url:
-                                "https://marketplace.visualstudio.com/items?itemName=RiccardoAntonelli.chrome-tabs",
-                            backgroundColor: _theme.firstBackgroundColor,
-                            textColor: _theme.buttonTextColor,
-                            icon: Mdi.microsoftVisualStudioCode,
-                            buttonText: "View VS Code extension"),
-                      ],
-                    ),
+                        'all built into VS Code.',
+                    linkButtons: _width > 600
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              LinkButton(
+                                  url:
+                                      'https://github.com/RiccardoAntonelli/chrome_tabs',
+                                  backgroundColor: _theme.firstBackgroundColor,
+                                  textColor: _theme.buttonTextColor,
+                                  icon: Mdi.github,
+                                  buttonText: 'View on GitHub'),
+                              const SizedBox(width: 50),
+                              LinkButton(
+                                  url:
+                                      'https://marketplace.visualstudio.com/items?itemName=RiccardoAntonelli.chrome-tabs',
+                                  backgroundColor: _theme.firstBackgroundColor,
+                                  textColor: _theme.buttonTextColor,
+                                  icon: Mdi.microsoftVisualStudioCode,
+                                  buttonText: 'View VS Code extension'),
+                            ],
+                          )
+                        : Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const SizedBox(height: 80),
+                              LinkButton(
+                                  url:
+                                      'https://github.com/RiccardoAntonelli/chrome_tabs',
+                                  backgroundColor: _theme.firstBackgroundColor,
+                                  textColor: _theme.buttonTextColor,
+                                  icon: Mdi.github,
+                                  buttonText: 'View on GitHub'),
+                              const SizedBox(height: 50),
+                              LinkButton(
+                                  url:
+                                      'https://marketplace.visualstudio.com/items?itemName=RiccardoAntonelli.chrome-tabs',
+                                  backgroundColor: _theme.firstBackgroundColor,
+                                  textColor: _theme.buttonTextColor,
+                                  icon: Mdi.microsoftVisualStudioCode,
+                                  buttonText: 'View VS Code extension'),
+                            ],
+                          ),
                   ),
                 ),
               ),
@@ -188,22 +215,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     alignment: ProjectSectionAlignment.right,
                     image: null,
                     theme: _theme,
-                    titleText: "Personal site",
+                    titleText: 'Personal site',
                     contentText:
-                        "This website is one of my projects and it is built\n"
-                        "entirely with Flutter. It includes custom shapes and\n"
-                        "animations to make it more engaging.",
+                        'This website is one of my projects and it is built\n'
+                        'entirely with Flutter. It includes custom shapes and\n'
+                        'animations to make it more engaging.',
                     linkButtons: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           LinkButton(
                               url:
-                                  "https://github.com/RiccardoAntonelli/chrome_tabs",
+                                  'https://github.com/RiccardoAntonelli/chrome_tabs',
                               backgroundColor: _theme.firstBackgroundColor,
                               textColor: _theme.buttonTextColor,
                               icon: Mdi.github,
-                              buttonText: "View on GitHub"),
+                              buttonText: 'View on GitHub'),
                         ]),
                   ),
                 ),
@@ -232,7 +259,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       : Icon(Icons.light_mode_outlined,
                           color: _theme.appBarIconColor),
                   tooltip:
-                      _theme == SiteTheme.light() ? "Dark mode" : "Light mode",
+                      _theme == SiteTheme.light() ? 'Dark mode' : 'Light mode',
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 margin: const EdgeInsets.all(5),
@@ -243,12 +270,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               ),
               Container(
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(AboutMePage.route);
+                  },
                   icon: Icon(
                     Icons.account_circle_outlined,
                     color: _theme.appBarIconColor,
                   ),
-                  tooltip: "About me",
+                  tooltip: 'About me',
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 margin: const EdgeInsets.all(5),
@@ -268,7 +297,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       Icons.build_outlined,
                       color: _theme.appBarIconColor,
                     ),
-                    tooltip: "My projects",
+                    tooltip: 'My projects',
                   ),
                   padding: const EdgeInsets.symmetric(horizontal: 5),
                   margin: const EdgeInsets.all(5),
@@ -286,48 +315,55 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   }
 
   Widget getMainText({required double width}) {
-    double _fontSize = width / 32;
+    double _fontSize = width > 600 ? width / 32 : width / 22;
 
-    return RichText(
-      text: TextSpan(
-          text: "Hi, I'm ",
-          style: TextStyle(
-            color: _theme.textColor,
-            fontSize: _fontSize,
-          ),
-          children: [
-            TextSpan(
-              text: "Riccardo Antonelli",
-              style: TextStyle(
-                color: _theme.titleTextColor,
-              ),
-            ),
-            TextSpan(
-              text: " and I'm 17.\nI am a ",
+    return SizedBox(
+      width: width > 600 ? double.infinity : width - 160,
+      child: Center(
+        child: RichText(
+          text: TextSpan(
+              text: "Hi, I'm ",
               style: TextStyle(
                 color: _theme.textColor,
+                fontSize: _fontSize,
               ),
-            ),
-            TextSpan(
-              text: "full-stack developer",
-              style: TextStyle(
-                color: _theme.titleTextColor,
-              ),
-            ),
-            TextSpan(
-              text: " and a student.",
-              style: TextStyle(
-                color: _theme.textColor,
-              ),
-            ),
-          ]),
+              children: [
+                TextSpan(
+                  text: 'Riccardo Antonelli',
+                  style: TextStyle(
+                    color: _theme.titleTextColor,
+                  ),
+                ),
+                TextSpan(
+                  text: " and I'm 17.\nI am a ",
+                  style: TextStyle(
+                    color: _theme.textColor,
+                  ),
+                ),
+                TextSpan(
+                  text: 'full-stack developer',
+                  style: TextStyle(
+                    color: _theme.titleTextColor,
+                  ),
+                ),
+                TextSpan(
+                  text: ' and a student.',
+                  style: TextStyle(
+                    color: _theme.textColor,
+                  ),
+                ),
+              ]),
+        ),
+      ),
     );
   }
 
   SiteTheme changeTheme(SiteTheme currentTheme) {
     if (currentTheme == SiteTheme.dark()) {
+      widget.changeTheme!(SiteTheme.light());
       return SiteTheme.light();
     } else {
+      widget.changeTheme!(SiteTheme.dark());
       return SiteTheme.dark();
     }
   }

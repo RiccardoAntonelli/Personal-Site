@@ -9,12 +9,12 @@ class ThirdDrawings extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
+    List<dynamic> segmentedLine = getSegmentedLine(size);
+    canvas.drawPath(
+        getPathPortion(segmentedLine[0], _animation!.value), segmentedLine[1]);
+
     List<dynamic> curve = getCurve(size);
     canvas.drawPath(getPathPortion(curve[0], _animation!.value), curve[1]);
-
-    List<dynamic> triangle = getTriangle(size);
-    canvas.drawPath(
-        getPathPortion(triangle[0], _animation!.value), triangle[1]);
   }
 
   @override
@@ -22,7 +22,7 @@ class ThirdDrawings extends CustomPainter {
     return true;
   }
 
-  List<dynamic> getCurve(Size size) {
+  List<dynamic> getSegmentedLine(Size size) {
     final double _xScaling = size.width / 933;
     final double _yScaling = size.height / 533;
 
@@ -48,7 +48,7 @@ class ThirdDrawings extends CustomPainter {
     ];
   }
 
-  List<dynamic> getTriangle(Size size) {
+  List<dynamic> getCurve(Size size) {
     final double _xScaling = size.width / 551;
     final double _yScaling = size.height / 400;
 

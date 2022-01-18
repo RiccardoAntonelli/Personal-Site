@@ -30,9 +30,6 @@ class MainDrawings extends CustomPainter {
     return true;
   }
 
-  @override
-  void dispose() {}
-
   List<dynamic> getFirstCurve(Size size) {
     final double _xScaling = size.width / 800;
     final double _yScaling = size.height / 600;
