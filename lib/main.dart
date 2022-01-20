@@ -15,6 +15,8 @@ class MyApp extends StatelessWidget {
   MyApp({Key? key, required this.theme}) : super(key: key);
   SiteTheme theme;
 
+  //TODO: sistema UI su mobile, aggiungi Flutter nella pagina about_me, aggiungi link github codice sito
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "personal-site-6f398"
+  },
+  "targets": {
+    "personal-site-6f398": {
+      "hosting": {
+        "riccardoantonelli": [
+          "riccardoantonelli"
+        ]
+      }
+    }
+  }
+}

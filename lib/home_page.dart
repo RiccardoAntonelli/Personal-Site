@@ -1,9 +1,8 @@
-import 'dart:js' as js;
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mdi/mdi.dart';
 import 'package:personal_site/about_me_page.dart';
+import 'package:personal_site/widgets/footer.dart';
 
 import 'package:personal_site/widgets/link_button.dart';
 import 'package:personal_site/widgets/painters/main_drawings.dart';
@@ -31,7 +30,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       _secondAnimationController,
       _thirdAnimationController;
   late ScrollController _scrollController;
-  late bool isFirstLoad;
 
   @override
   void initState() {
@@ -45,7 +43,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     _thirdAnimationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000));
     _scrollController = ScrollController()..addListener(onScroll);
-    isFirstLoad = true;
+    _mainAnimationController.forward();
     super.initState();
   }
 
@@ -63,11 +61,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     double _height = MediaQuery.of(context).size.height;
     double _width = MediaQuery.of(context).size.width;
-
-    if (isFirstLoad) {
-      _mainAnimationController.forward();
-      isFirstLoad = false;
-    }
 
     if (_scrollController.hasClients) {
       if (_scrollController.offset >= (_height - 100)) {
@@ -115,7 +108,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     width: _width,
                     height: _height,
                     alignment: ProjectSectionAlignment.left,
-                    image: Image.asset('../images/school_app_screenshot.jpg'),
+                    image:
+                        Image.asset('school_app_screenshot.jpg'.changePath()),
                     theme: _theme,
                     titleText: 'School app',
                     contentText:
@@ -143,7 +137,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     height: _height,
                     alignment: ProjectSectionAlignment.right,
                     image: Image.asset(
-                      '../images/chrome_tabs_screenshot.png',
+                      'chrome_tabs_screenshot.png'.changePath(),
                       width: _width / 2,
                     ),
                     theme: _theme,
@@ -235,17 +229,35 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-              Container(
-                height: 50,
-                width: double.infinity,
-                color: _theme.firstBackgroundColor,
-              )
+              Footer(
+                theme: _theme,
+                width: _width,
+                height: _height,
+              ),
             ]),
           ),
           Positioned(
             top: 10,
             left: 10,
             child: Row(children: [
+              Container(
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(AboutMePage.route);
+                  },
+                  icon: Icon(
+                    Icons.account_circle_outlined,
+                    color: _theme.appBarIconColor,
+                  ),
+                  tooltip: 'About me',
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 5),
+                margin: const EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: _theme.appBarButtonColor,
+                ),
+              ),
               Container(
                 child: IconButton(
                   onPressed: () {
@@ -260,24 +272,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           color: _theme.appBarIconColor),
                   tooltip:
                       _theme == SiteTheme.light() ? 'Dark mode' : 'Light mode',
-                ),
-                padding: const EdgeInsets.symmetric(horizontal: 5),
-                margin: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: _theme.appBarButtonColor,
-                ),
-              ),
-              Container(
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed(AboutMePage.route);
-                  },
-                  icon: Icon(
-                    Icons.account_circle_outlined,
-                    color: _theme.appBarIconColor,
-                  ),
-                  tooltip: 'About me',
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 margin: const EdgeInsets.all(5),
