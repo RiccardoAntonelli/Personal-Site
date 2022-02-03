@@ -4,18 +4,20 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:personal_site/theme.dart';
 
 class GridItem extends StatelessWidget {
-  const GridItem({
-    Key? key,
-    required this.theme,
-    required this.width,
-    required this.height,
-    required this.imagePath,
-    required this.titleText,
-    required this.contentText,
-  }) : super(key: key);
+  const GridItem(
+      {Key? key,
+      required this.theme,
+      required this.width,
+      required this.height,
+      required this.imagePath,
+      required this.titleText,
+      required this.contentText,
+      this.backgroundColor})
+      : super(key: key);
   final SiteTheme theme;
   final double width, height;
   final String imagePath, titleText, contentText;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ class GridItem extends StatelessWidget {
       ]),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: theme.secondBackgroundColor,
+        color: backgroundColor ?? theme.secondBackgroundColor,
       ),
     );
   }

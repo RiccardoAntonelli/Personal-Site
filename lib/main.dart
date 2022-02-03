@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'about_me_page.dart';
+import 'package:personal_site/screens/home_page/home_page.dart';
+import 'screens/about_me_page/about_me_page.dart';
 import 'configuration/configure_nonweb.dart'
     if (dart.library.html) 'configuration/configure_web.dart';
 
-import 'package:personal_site/home_page.dart';
 import 'package:personal_site/theme.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   MyApp({Key? key, required this.theme}) : super(key: key);
   SiteTheme theme;
 
-  //TODO: sistema UI su mobile, aggiungi Flutter nella pagina about_me, aggiungi link github codice sito
+  //TODO: aggiungi link github codice sito, finisci home page mobile, fai about me page mobile
 
   // This widget is the root of your application.
   @override

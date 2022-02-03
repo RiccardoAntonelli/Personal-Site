@@ -4,8 +4,10 @@ import 'package:personal_site/widgets/painters/painters_utilites.dart';
 class MainDrawings extends CustomPainter {
   final Animation<double>? _animation;
   final double? _opacity;
+  final bool? isMobile;
 
-  MainDrawings(this._animation, this._opacity) : super(repaint: _animation);
+  MainDrawings(this._animation, this._opacity, {this.isMobile})
+      : super(repaint: _animation);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -80,7 +82,9 @@ class MainDrawings extends CustomPainter {
     return [
       Path()
         ..addRect(Rect.fromCenter(
-            center: center, width: 500 * _xScaling, height: 200 * _yScaling)),
+            center: center,
+            width: (isMobile ?? false) ? (size.width - 20) : 500 * _xScaling,
+            height: 200 * _yScaling)),
       Paint()
         ..color = Colors.green.withOpacity(_opacity!)
         ..style = PaintingStyle.stroke

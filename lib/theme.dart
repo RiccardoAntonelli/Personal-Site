@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+@immutable
 class SiteTheme {
   final Color? firstBackgroundColor;
   final Color? secondBackgroundColor;
@@ -12,7 +13,7 @@ class SiteTheme {
   final Color? buttonTextColor;
   final double? drawingsOpacity;
 
-  SiteTheme(
+  const SiteTheme(
       {this.firstBackgroundColor,
       this.secondBackgroundColor,
       this.thirdBackgroundColor,
@@ -25,33 +26,39 @@ class SiteTheme {
       this.drawingsOpacity});
 
   factory SiteTheme.dark() {
-    return SiteTheme(
-      firstBackgroundColor: const Color(0xFF212121),
-      secondBackgroundColor: const Color(0xFF262626),
-      thirdBackgroundColor: const Color(0xFF333333),
-      appBarButtonColor: const Color(0xFF445427),
-      appBarIconColor: const Color(0xFFFFFFFF),
-      titleTextColor: const Color(0xFFFFFFFF),
-      secondTitleTextColor: const Color(0xFFBCBCBC),
-      textColor: const Color(0xB3FFFFFF),
-      buttonTextColor: const Color(0xFFFFFFFF),
+    return const SiteTheme(
+      firstBackgroundColor: Color(0xFF202020),
+      secondBackgroundColor: Color(0xFF2B2B2B),
+      thirdBackgroundColor: Color(0xFF3C3C3C),
+      appBarButtonColor: Color(0xFF445427),
+      appBarIconColor: Color(0xFFFFFFFF),
+      titleTextColor: Color(0xFFFFFFFF),
+      secondTitleTextColor: Color(0xFFBCBCBC),
+      textColor: Color(0xB3FFFFFF),
+      buttonTextColor: Color(0xFFFFFFFF),
       drawingsOpacity: 0.4,
     );
   }
 
   factory SiteTheme.light() {
-    return SiteTheme(
-        firstBackgroundColor: const Color(0xFFFAFAFA),
-        secondBackgroundColor: const Color(0xFFF2F2F2),
-        thirdBackgroundColor: const Color(0xFFE6E6E6),
-        appBarButtonColor: const Color(0xFFA4BF73),
-        appBarIconColor: const Color(0xFF212121),
-        titleTextColor: const Color(0xFF000000),
-        secondTitleTextColor: const Color(0xFF373737),
-        textColor: const Color(0x8A000000),
-        buttonTextColor: const Color(0xFF000000),
+    return const SiteTheme(
+        firstBackgroundColor: Color(0xFFFAFAFA),
+        secondBackgroundColor: Color(0xFFFBFBFB),
+        thirdBackgroundColor: Color(0xFFF3F3F3),
+        appBarButtonColor: Color(0xFFA4BF73),
+        appBarIconColor: Color(0xFF212121),
+        titleTextColor: Color(0xFF000000),
+        secondTitleTextColor: Color(0xFF373737),
+        textColor: Color(0x8A000000),
+        buttonTextColor: Color(0xFF000000),
         drawingsOpacity: 0.8);
   }
+
+  bool isDark() =>
+      firstBackgroundColor == const Color(0xFF202020) ? true : false;
+
+  bool isLight() =>
+      firstBackgroundColor == const Color(0xFFFAFAFA) ? true : false;
 
   @override
   bool operator ==(Object other) =>
