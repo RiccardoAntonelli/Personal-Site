@@ -32,7 +32,7 @@
 
   "personalSiteTitle": "Personal Site",
   "personalSiteContent": "Questo sito è uno dei miei progetti ed è fatto\ninteramente con Flutter. Il sito include vaire forme e\nanimazioni per renderlo più interessante.",
-  "personalSiteGitHubURL": "",
+  "personalSiteGitHubURL": "https://github.com/RiccardoAntonelli/Personal-Site",
 
   "aboutMePageMainText": "Ciao! Sono Riccardo e attualmente sono uno studente di scuole superiori.\nCerco sempre di imparare nuove tecnologie durante il mio tempo libero\nappena escono. Il linguaggio principale che uso è Dart, con esso\ne Flutter riesco a creare bellissimi siti e applicazioni.",
 
