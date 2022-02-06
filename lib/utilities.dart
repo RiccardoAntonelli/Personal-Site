@@ -12,7 +12,7 @@ extension ChangePath on String {
 }
 
 SiteTheme changeTheme(SiteTheme currentTheme, Function changeTheme) {
-  if (currentTheme == SiteTheme.dark()) {
+  if (currentTheme.isDark()) {
     changeTheme(SiteTheme.light());
     return SiteTheme.light();
   } else {

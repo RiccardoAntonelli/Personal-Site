@@ -1,7 +1,7 @@
+import 'dart:js' as js;
+
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
-
-import 'dart:js' as js;
 
 class LinkButton extends StatelessWidget {
   final String url, buttonText;
@@ -32,6 +32,7 @@ class LinkButton extends StatelessWidget {
         js.context.callMethod('open', [url]);
       },
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(
             icon,
@@ -43,7 +44,7 @@ class LinkButton extends StatelessWidget {
             style: TextStyle(
                 color: textColor,
                 fontWeight: FontWeight.bold,
-                fontSize: 18,
+                fontSize: 17,
                 letterSpacing: 1.6,
                 fontFamily: 'OpenSans'),
           ),

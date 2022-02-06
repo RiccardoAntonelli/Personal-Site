@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:personal_site/screens/home_page/home_page_desktop.dart';
 import 'package:personal_site/screens/home_page/home_page_mobile.dart';
-import 'package:personal_site/widgets/adaptive_builder.dart';
 import 'package:personal_site/theme.dart';
+import 'package:personal_site/widgets/adaptive_builder.dart';
 
 class HomePage extends StatefulWidget {
   static const String route = '/';

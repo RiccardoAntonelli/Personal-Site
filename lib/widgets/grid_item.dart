@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:personal_site/theme.dart';
 
 class GridItem extends StatelessWidget {
@@ -12,10 +11,12 @@ class GridItem extends StatelessWidget {
       required this.imagePath,
       required this.titleText,
       required this.contentText,
+      required this.isMobile,
       this.backgroundColor})
       : super(key: key);
   final SiteTheme theme;
   final double width, height;
+  final bool isMobile;
   final String imagePath, titleText, contentText;
   final Color? backgroundColor;
 
@@ -25,12 +26,12 @@ class GridItem extends StatelessWidget {
       child:
           Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         Container(
-          height: width / 10,
+          height: isMobile ? width / 4 : width / 10,
           padding: const EdgeInsets.all(10),
           child: Center(
             child: SvgPicture.asset(
               imagePath,
-              width: width / 10,
+              width: isMobile ? width / 4 : width / 10,
             ),
           ),
         ),
@@ -40,17 +41,17 @@ class GridItem extends StatelessWidget {
               titleText,
               style: TextStyle(
                 color: theme.titleTextColor,
-                fontSize: width / 50,
+                fontSize: isMobile ? width / 26 : width / 50,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(10),
               child: Text(
                 contentText,
                 style: TextStyle(
                   color: theme.textColor,
-                  fontSize: width / 80,
+                  fontSize: isMobile ? width / 40 : width / 80,
                 ),
               ),
             )

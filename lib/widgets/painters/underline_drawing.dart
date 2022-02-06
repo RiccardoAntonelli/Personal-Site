@@ -17,7 +17,7 @@ class UnderlineDrawing extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
+    return false;
   }
 
   List<dynamic> getLine(Size size) {

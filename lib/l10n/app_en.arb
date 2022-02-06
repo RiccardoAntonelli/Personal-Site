@@ -1,0 +1,129 @@
+{
+  "@@locale": "en",
+  "appTitle": "Riccardo A",
+
+  "labelBtnViewVSCodeExtension": "View VS Code extension",
+  "labelBtnViewOnGitHub": "View on Git Hub",
+
+  "tooltipBtnAboutMe": "About Me",
+  "tooltipBtnBack": "Back",
+  "tooltipBtnMyProjects": "My Projects",
+  "tooltipBtnDarkMode": "Dark Mode",
+  "tooltipBtnLightMode": "Light Mode",
+
+  "footerMadeWith": "Made with Flutter",
+  "footerEmail": "E-Mail - riccardo.antonelli@outlook.com",
+
+  "homePageMainText1": "Hi, I'm ",
+  "homePageMainText2": "Riccardo Antonelli ",
+  "homePageMainText3": "and I'm 17.\nI am a ",
+  "homePageMainText4": "full-stack developer ",
+  "homePageMainText5": "and a student.",
+
+  "schoolAppTitle": "School App",
+  "schoolAppContent": "An app that lets you manage all your grades and subjects.\nIt has a calendar from witch you can view all the upcoming\ntests and it can store all your grades with description\nand attachments. This app was made with Flutter and coded\nin Dart and uses firestore storage. All your data is saved\nsecurely on the cloud so you can log in with multiple devices\nand have them synchronized. You can also log in with Google.\nThis project is still WIP",
+  "schoolAppScreenshotPath": "school_app_screenshot.jpg",
+
+  "chromeTabsTitle": "Chrome Tabs",
+  "chromeTabsContent": "An extension for Visual Studio Code that integrates\nwebsites into the editor. With this extension developed\nwith Type Script you can save multiple websites and have\nthem near your lines of code. With this extension you\ndon't need to have multiple windows open because it's\nall built into VS Code.",
+  "chromeTabsScreenshotPath": "chrome_tabs_screenshot.png",
+  "chromeTabsVSCodeExtensionURL": "https://marketplace.visualstudio.com/items?itemName=RiccardoAntonelli.chrome-tabs",
+  "chromeTabsGitHubURL": "https://github.com/RiccardoAntonelli/chrome_tabs",
+
+  "personalSiteTitle": "Personal Site",
+  "personalSiteContent": "This website is one of my projects and it is built\nentirely with Flutter. It includes custom shapes and\nanimations to make it more engaging.",
+  "personalSiteGitHubURL": "",
+
+  "aboutMePageMainText": "Hi! I'm Riccardo and I'm currently an high school student.\nalways try to learn new technologies during my free time\nas they come out. The main language I use is dart, with it\nand Flutter I can design beautiful apps and websites.",
+
+  "aboutMePageMainTechnologies": "MAIN TECHNOLOGIES I USE",
+
+  "androidStudioTitle": "ANDROID STUDIO",
+  "androidStudioContent": "An IDE for building apps with Flutter, Java or Kotlin, developed by JetBrains and Google.",
+  "androidStudioIconPath": "technologies/android_studio.svg",
+
+  "vSCodeTitle": "VISUAL STUDIO CODE",
+  "vSCodeContent": "A multi-purpose text editor that helps you write code in many languages, developed by Microsoft.",
+  "vSCodeIconPath": "technologies/visual_studio_code.svg",
+
+  "sQLiteTitle": "SQLITE",
+  "sQLiteContent": "A SQL based databased used in flutter apps, thanks to the package SQLFLite.",
+  "sQLiteIconPath": "technologies/sqlite.svg",
+
+  "firestoreTitle": "CLOUD FIRESTORE",
+  "firestoreContent": "A cloud based database developed by Google and used in various Flutter apps.",
+  "firestoreIconPath": "technologies/cloud_firestore.svg",
+
+  "gITTitle": "GIT",
+  "gITContent": "A software version control.",
+  "gITIconPath": "technologies/git.svg",
+
+  "gitHubTitle": "GIT HUB",
+  "gitHubContent": "An online code sharing platform developed by Microsoft.",
+  "gitHubIconPath": "technologies/github.svg",
+
+  "vS2022Title": "VISUAL STUDIO 2022",
+  "vS2022HubContent": "An IDE that helps you write C#, C++ and C code, developed by Microsoft.",
+  "vS2022HubIconPath": "technologies/visual_studio_2022.svg",
+
+  "unityTitle": "UNITY",
+  "unityHubContent": "A game engine that helps you make games with C#.",
+  "unityHubIconPath": "technologies/unity.svg",
+
+  "aboutMePageMainLanguages": "MAIN LANGUAGES I USE",
+
+  "arduinoTitle": "ARDUINO",
+  "arduinoContent": "A language based on C that helps you program micro controllers.",
+  "arduinoIconPath": "languages/arduino.svg",
+
+  "cSharpTitle": "C SHARP",
+  "cSharpContent": "A language used to code games with unity and desktop applications with .NET.",
+  "cSharpIconPath": "languages/c_sharp.svg",
+
+  "cSSTitle": "CSS 3",
+  "cSSContent": "A language that helps you style HTML components.",
+  "cSSIconPath": "languages/css3.svg",
+
+  "hTMLTitle": "HTML 5",
+  "hTMLContent": "A language that helps you structure websites.",
+  "hTMLIconPath": "languages/html5.svg",
+
+  "javaTitle": "JAVA",
+  "javaContent": "A multi purpose language that also helps you build mobile apps.",
+  "javaIconPath": "languages/java.svg",
+
+  "pythonTitle": "PYTHON",
+  "pythonContent": "A easy to learn language that is multi purpose like java.",
+  "pythonIconPath": "languages/python.svg",
+
+  "javaScriptTitle": "JAVASCRIPT",
+  "javaScriptContent": "With this language you can control animations and various HTML elements.",
+  "javaScriptIconPath": "languages/javascript.svg",
+
+  "typeScriptTitle": "TYPESCRIPT",
+  "typeScriptContent": "A language very similar to javascript with statically-typed variables and classes.",
+  "typeScriptIconPath": "languages/typescript.svg",
+
+  "aboutMePageFlutterContent": "FLUTTER, the main technology i know that helps me build apps for multiple platforms.",
+  "aboutMePageFlutterIconPath": "technologies/flutter.svg",
+
+  "androidTitle": "ANDROID",
+  "androidContent": "",
+  "androidIconPath": "platforms/android.svg",
+
+  "iOSTitle": "IOS",
+  "iOSContent": "",
+  "iOSIconPath": "platforms/ios.svg",
+
+  "webTitle": "WEB",
+  "webContent": "",
+  "webIconPath": "platforms/chrome.svg",
+
+  "windowsTitle": "WINDOWS",
+  "windowsContent": "",
+  "windowsIconPath": "platforms/windows_10.svg",
+
+  "macOsTitle": "MAC OS",
+  "macOsContent": "",
+  "macOsIconPath": "platforms/mac_os.svg"
+}

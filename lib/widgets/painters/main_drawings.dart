@@ -4,9 +4,9 @@ import 'package:personal_site/widgets/painters/painters_utilites.dart';
 class MainDrawings extends CustomPainter {
   final Animation<double>? _animation;
   final double? _opacity;
-  final bool? isMobile;
+  final bool isMobile;
 
-  MainDrawings(this._animation, this._opacity, {this.isMobile})
+  MainDrawings(this._animation, this._opacity, this.isMobile)
       : super(repaint: _animation);
 
   @override
@@ -29,7 +29,7 @@ class MainDrawings extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
+    return false;
   }
 
   List<dynamic> getFirstCurve(Size size) {
@@ -83,7 +83,7 @@ class MainDrawings extends CustomPainter {
       Path()
         ..addRect(Rect.fromCenter(
             center: center,
-            width: (isMobile ?? false) ? (size.width - 20) : 500 * _xScaling,
+            width: isMobile ? (size.width - 20) : 500 * _xScaling,
             height: 200 * _yScaling)),
       Paint()
         ..color = Colors.green.withOpacity(_opacity!)

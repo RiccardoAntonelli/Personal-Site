@@ -17,18 +17,18 @@ class RRectDrawing extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-    return true;
+    return false;
   }
 
   List<dynamic> getRRect(Size size) {
-    final double _width = size.width + 40;
+    final double _width = size.width + 30;
     final double _height = size.height + 40;
 
     return [
       Path()
         ..moveTo(0, 0)
         ..addRRect(RRect.fromLTRBR(
-            -20, -20, _width, _height, const Radius.circular(20))),
+            -35, -40, _width, _height, const Radius.circular(20))),
       Paint()
         ..color = _color!.withOpacity(_opacity!)
         ..style = PaintingStyle.stroke

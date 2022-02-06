@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:mdi/mdi.dart';
-
 import 'package:personal_site/screens/about_me_page/about_me_page.dart';
 import 'package:personal_site/theme.dart';
 import 'package:personal_site/utilities.dart';
@@ -55,6 +55,7 @@ class _HomePageDesktopState extends State<HomePageDesktop>
       _controller.dispose();
     }
     _scrollController.removeListener(onScroll);
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -74,6 +75,7 @@ class _HomePageDesktopState extends State<HomePageDesktop>
         _animationControllers[3].forward();
       }
     }
+
     return Scaffold(
       backgroundColor: _theme.firstBackgroundColor,
       body: Stack(children: [
@@ -87,9 +89,10 @@ class _HomePageDesktopState extends State<HomePageDesktop>
               color: _theme.firstBackgroundColor,
               child: CustomPaint(
                 painter: MainDrawings(
-                    _animationControllers[0], _theme.drawingsOpacity),
+                    _animationControllers[0], _theme.drawingsOpacity, false),
                 child: Center(
-                  child: getMainText(fontSize: _width / 32, theme: _theme),
+                  child: getMainText(
+                      fontSize: _width / 32, theme: _theme, context: context),
                 ),
               ),
             ),
@@ -103,20 +106,16 @@ class _HomePageDesktopState extends State<HomePageDesktop>
                 child: ProjectSection(
                   width: _width,
                   height: _height,
+                  imageHeight: _height - 40,
                   alignment: ProjectSectionAlignment.left,
-                  image: Image.asset('school_app_screenshot.jpg'.changePath()),
+                  image: Image.asset(AppLocalizations.of(context)!
+                      .schoolAppScreenshotPath
+                      .changePath()),
                   theme: _theme,
-                  titleText: 'School app',
-                  contentText:
-                      'An app that lets you manage all your grades and subjects.\n'
-                      'It has a calendar from witch you can view all the upcoming\n'
-                      'tests and it can store all your grades with description\n'
-                      'and attachments. This app was made with Flutter and coded\n'
-                      'in Dart and uses firestore storage. All your data is saved\n'
-                      'securely on the cloud so you can log in with multiple devices\n'
-                      'and have them synchronized. You can also log in with Google.\n'
-                      'This project is still WIP',
+                  titleText: AppLocalizations.of(context)!.schoolAppTitle,
+                  contentText: AppLocalizations.of(context)!.schoolAppContent,
                   linkButtons: const SizedBox(),
+                  isMobile: false,
                 ),
               ),
             ),
@@ -130,64 +129,40 @@ class _HomePageDesktopState extends State<HomePageDesktop>
                 child: ProjectSection(
                   width: _width,
                   height: _height,
+                  imageHeight: _height - 40,
                   alignment: ProjectSectionAlignment.right,
                   image: Image.asset(
-                    'chrome_tabs_screenshot.png'.changePath(),
+                    AppLocalizations.of(context)!
+                        .chromeTabsScreenshotPath
+                        .changePath(),
                     width: _width / 2,
                   ),
                   theme: _theme,
-                  titleText: 'Chrome tabs',
-                  contentText:
-                      'An extension for Visual Studio Code that integrates\n'
-                      'websites into the editor. With this extension developed\n'
-                      'with Type Script you can save multiple websites and have\n'
-                      'them near your lines of code. With this extension you\n'
-                      "don't need to have multiple windows open because it's\n"
-                      'all built into VS Code.',
-                  linkButtons: _width > 600
-                      ? Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            LinkButton(
-                                url:
-                                    'https://github.com/RiccardoAntonelli/chrome_tabs',
-                                backgroundColor: _theme.firstBackgroundColor,
-                                textColor: _theme.buttonTextColor,
-                                icon: Mdi.github,
-                                buttonText: 'View on GitHub'),
-                            const SizedBox(width: 50),
-                            LinkButton(
-                                url:
-                                    'https://marketplace.visualstudio.com/items?itemName=RiccardoAntonelli.chrome-tabs',
-                                backgroundColor: _theme.firstBackgroundColor,
-                                textColor: _theme.buttonTextColor,
-                                icon: Mdi.microsoftVisualStudioCode,
-                                buttonText: 'View VS Code extension'),
-                          ],
-                        )
-                      : Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const SizedBox(height: 80),
-                            LinkButton(
-                                url:
-                                    'https://github.com/RiccardoAntonelli/chrome_tabs',
-                                backgroundColor: _theme.firstBackgroundColor,
-                                textColor: _theme.buttonTextColor,
-                                icon: Mdi.github,
-                                buttonText: 'View on GitHub'),
-                            const SizedBox(height: 50),
-                            LinkButton(
-                                url:
-                                    'https://marketplace.visualstudio.com/items?itemName=RiccardoAntonelli.chrome-tabs',
-                                backgroundColor: _theme.firstBackgroundColor,
-                                textColor: _theme.buttonTextColor,
-                                icon: Mdi.microsoftVisualStudioCode,
-                                buttonText: 'View VS Code extension'),
-                          ],
-                        ),
+                  titleText: AppLocalizations.of(context)!.chromeTabsTitle,
+                  contentText: AppLocalizations.of(context)!.chromeTabsContent,
+                  linkButtons: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        LinkButton(
+                            url: AppLocalizations.of(context)!
+                                .chromeTabsGitHubURL,
+                            backgroundColor: _theme.firstBackgroundColor,
+                            textColor: _theme.buttonTextColor,
+                            icon: Mdi.github,
+                            buttonText: AppLocalizations.of(context)!
+                                .labelBtnViewOnGitHub),
+                        const SizedBox(width: 50),
+                        LinkButton(
+                            url: AppLocalizations.of(context)!
+                                .chromeTabsVSCodeExtensionURL,
+                            backgroundColor: _theme.firstBackgroundColor,
+                            textColor: _theme.buttonTextColor,
+                            icon: Mdi.microsoftVisualStudioCode,
+                            buttonText: AppLocalizations.of(context)!
+                                .labelBtnViewVSCodeExtension),
+                      ]),
+                  isMobile: false,
                 ),
               ),
             ),
@@ -201,26 +176,27 @@ class _HomePageDesktopState extends State<HomePageDesktop>
                 child: ProjectSection(
                   width: _width,
                   height: _height,
+                  imageHeight: 0,
                   alignment: ProjectSectionAlignment.right,
                   image: null,
                   theme: _theme,
-                  titleText: 'Personal site',
+                  titleText: AppLocalizations.of(context)!.personalSiteTitle,
                   contentText:
-                      'This website is one of my projects and it is built\n'
-                      'entirely with Flutter. It includes custom shapes and\n'
-                      'animations to make it more engaging.',
+                      AppLocalizations.of(context)!.personalSiteContent,
                   linkButtons: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         LinkButton(
-                            url:
-                                'https://github.com/RiccardoAntonelli/chrome_tabs',
+                            url: AppLocalizations.of(context)!
+                                .personalSiteGitHubURL,
                             backgroundColor: _theme.firstBackgroundColor,
                             textColor: _theme.buttonTextColor,
                             icon: Mdi.github,
-                            buttonText: 'View on GitHub'),
+                            buttonText: AppLocalizations.of(context)!
+                                .labelBtnViewOnGitHub),
                       ]),
+                  isMobile: false,
                 ),
               ),
             ),
@@ -228,6 +204,7 @@ class _HomePageDesktopState extends State<HomePageDesktop>
               theme: _theme,
               width: _width,
               height: _height,
+              isMobile: false,
             ),
           ]),
         ),
@@ -244,7 +221,7 @@ class _HomePageDesktopState extends State<HomePageDesktop>
                   Icons.account_circle_outlined,
                   color: _theme.appBarIconColor,
                 ),
-                tooltip: 'About me',
+                tooltip: AppLocalizations.of(context)!.tooltipBtnAboutMe,
               ),
               padding: const EdgeInsets.symmetric(horizontal: 5),
               margin: const EdgeInsets.all(5),
@@ -260,13 +237,14 @@ class _HomePageDesktopState extends State<HomePageDesktop>
                     _theme = changeTheme(_theme, widget.changeTheme!);
                   });
                 },
-                icon: _theme == SiteTheme.light()
+                icon: _theme.isLight()
                     ? Icon(Icons.dark_mode_outlined,
                         color: _theme.appBarIconColor)
                     : Icon(Icons.light_mode_outlined,
                         color: _theme.appBarIconColor),
-                tooltip:
-                    _theme == SiteTheme.light() ? 'Dark mode' : 'Light mode',
+                tooltip: _theme.isLight()
+                    ? AppLocalizations.of(context)!.tooltipBtnDarkMode
+                    : AppLocalizations.of(context)!.tooltipBtnLightMode,
               ),
               padding: const EdgeInsets.symmetric(horizontal: 5),
               margin: const EdgeInsets.all(5),
@@ -286,7 +264,7 @@ class _HomePageDesktopState extends State<HomePageDesktop>
                     Icons.build_outlined,
                     color: _theme.appBarIconColor,
                   ),
-                  tooltip: 'My projects',
+                  tooltip: AppLocalizations.of(context)!.tooltipBtnMyProjects,
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 5),
                 margin: const EdgeInsets.all(5),
